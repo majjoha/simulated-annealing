@@ -21,3 +21,17 @@ spec = do
 
     it "calculates the acceptance probability if the current tour is longer than the neighbor tour" $ do
       acceptanceProbability 2 4 6 `shouldBe` 0.7165313
+
+  describe "findShortestTour" $ do
+    it "returns the shortest tour" $
+      do
+        findShortestTour
+          [ (1, 2),
+            (2, 3)
+          ]
+          [ (1, 2),
+            (3, 2),
+            (4, 3),
+            (5, 1)
+          ]
+        `shouldBe` [(1, 2), (2, 3)]
