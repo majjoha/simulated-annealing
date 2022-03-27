@@ -1,0 +1,15 @@
+name:               simulated-annealing
+version:            1.0.0
+synopsis:           An implementation of the simulated annealing algorithm
+author:             Mathias Jean Johansen
+maintainer:         mathias@mjj.io
+homepage:           https://github.com/majjoha/simulated-annealing
+license:            ISC
+license-file:       LICENSE
+cabal-version:      2.4
+
+executable simulated-annealing
+    main-is:          Main.hs
+    build-depends:    base ^>=4.14.3.0
+    hs-source-dirs:   app
+    default-language: Haskell2010
