@@ -7,4 +7,4 @@ spec :: Spec
 spec = do
   describe "add" $ do
     it "adds two numbers" $ do
-      add 1 2 `shouldBe` 4
+      add 1 2 `shouldBe` 3
