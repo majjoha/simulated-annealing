@@ -13,6 +13,7 @@ library
     SimulatedAnnealing
     SimulatedAnnealing.Algorithm
     SimulatedAnnealing.City
+    SimulatedAnnealing.Tour
 
   hs-source-dirs:   src
   build-depends:
@@ -33,6 +34,7 @@ test-suite simulated-annealing-test
   other-modules:
     SimulatedAnnealing.AlgorithmSpec
     SimulatedAnnealing.CitySpec
+    SimulatedAnnealing.TourSpec
 
   hs-source-dirs:     test
   ghc-options:        -threaded -rtsopts -with-rtsopts=-N -Wall
