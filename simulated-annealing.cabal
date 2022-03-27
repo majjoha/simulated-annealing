@@ -1,3 +1,4 @@
+cabal-version:      2.4
 name:               simulated-annealing
 version:            1.0.0
 synopsis:           An implementation of the simulated annealing algorithm
@@ -6,7 +7,6 @@ maintainer:         mathias@mjj.io
 homepage:           https://github.com/majjoha/simulated-annealing
 license:            ISC
 license-file:       LICENSE
-cabal-version:      2.4
 
 executable simulated-annealing
     main-is:          Main.hs
