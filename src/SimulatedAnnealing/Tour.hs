@@ -6,6 +6,7 @@ module SimulatedAnnealing.Tour
 where
 
 import           SimulatedAnnealing.City (City)
+import           System.Random
 
 type Tour = [City]
 
@@ -19,3 +20,6 @@ totalDistance [(_, _)] = 0
 totalDistance [c1, c2] = calculateDistanceBetweenCities c1 c2
 totalDistance (c1 : c2 : xs) =
   calculateDistanceBetweenCities c1 c2 + totalDistance (c2 : xs)
+
+generateRandomIndexFromTour :: Tour -> IO Int
+generateRandomIndexFromTour tour = randomRIO (0 :: Int, length tour - 1)
