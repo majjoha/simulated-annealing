@@ -5,10 +5,12 @@ module SimulatedAnnealing.Algorithm
     coolingFactor,
     acceptanceProbability,
     findShortestTour,
+    generateShortestTour,
   )
 where
 
 import           SimulatedAnnealing.Tour
+import           System.Random
 
 initialTemperature :: Float
 initialTemperature = 10_000
@@ -34,3 +36,17 @@ generateNewTour random currentTour neighborTour temperature =
     where
       currentLength = totalDistance currentTour
       neighborLength = totalDistance neighborTour
+
+generateShortestTour :: Tour -> Float -> Int -> IO (Tour, Int)
+generateShortestTour currentTour temperature iterations = do
+  firstIndex <- generateRandomIndexFromTour currentTour
+  secondIndex <- generateRandomIndexFromTour currentTour
+  random <- randomRIO (0 :: Float, 1)
+
+  let neighborTour = swapCities firstIndex secondIndex currentTour
+  let currentTour' = generateNewTour random currentTour neighborTour temperature
+  let bestTour = findShortestTour currentTour' currentTour
+
+  if temperature > 1
+  then generateShortestTour bestTour (temperature * coolingFactor) $ iterations + 1
+  else return (bestTour, iterations)
