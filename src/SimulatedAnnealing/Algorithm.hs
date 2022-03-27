@@ -25,3 +25,12 @@ findShortestTour :: Tour -> Tour -> Tour
 findShortestTour currentTour bestTour
   | totalDistance currentTour < totalDistance bestTour = currentTour
   | otherwise = bestTour
+
+generateNewTour :: Float -> Tour -> Tour -> Float -> Tour
+generateNewTour random currentTour neighborTour temperature =
+  if random < acceptanceProbability currentLength neighborLength temperature
+  then neighborTour
+  else currentTour
+    where
+      currentLength = totalDistance currentTour
+      neighborLength = totalDistance neighborTour

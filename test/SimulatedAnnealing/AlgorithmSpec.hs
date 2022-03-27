@@ -35,3 +35,7 @@ spec = do
             (5, 1)
           ]
         `shouldBe` [(1, 2), (2, 3)]
+
+    describe "generateNewTour" $ do
+      it "generates a new tour based on a random value" $ do
+        pending
