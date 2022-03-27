@@ -14,7 +14,10 @@ library
     SimulatedAnnealing.City
 
   hs-source-dirs:   src
-  build-depends:    base ^>=4.14.3.0
+  build-depends:
+    , base    ^>=4.14.3.0
+    , random  >=1.2.1
+
   default-language: Haskell2010
 
 executable simulated-annealing
