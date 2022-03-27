@@ -1,40 +1,38 @@
-cabal-version:      2.4
-name:               simulated-annealing
-version:            1.0.0
-synopsis:           An implementation of the simulated annealing algorithm
-author:             Mathias Jean Johansen
-maintainer:         mathias@mjj.io
-homepage:           https://github.com/majjoha/simulated-annealing
-license:            ISC
-license-file:       LICENSE
+cabal-version: 2.4
+name:          simulated-annealing
+version:       1.0.0
+synopsis:      An implementation of the simulated annealing algorithm
+author:        Mathias Jean Johansen
+maintainer:    mathias@mjj.io
+homepage:      https://github.com/majjoha/simulated-annealing
+license:       ISC
+license-file:  LICENSE
 
 library
   exposed-modules:
-      SimulatedAnnealing
-      SimulatedAnnealing.Add
-  hs-source-dirs:
-      src
-  build-depends:
-      base ^>= 4.14.3.0
+    SimulatedAnnealing
+    SimulatedAnnealing.Add
+
+  hs-source-dirs:   src
+  build-depends:    base ^>=4.14.3.0
   default-language: Haskell2010
 
 executable simulated-annealing
-    main-is:          Main.hs
-    build-depends:    base ^>=4.14.3.0
-    hs-source-dirs:   app
-    default-language: Haskell2010
+  main-is:          Main.hs
+  build-depends:    base ^>=4.14.3.0
+  hs-source-dirs:   app
+  default-language: Haskell2010
 
 test-suite simulated-annealing-test
-  type: exitcode-stdio-1.0
-  main-is: Spec.hs
-  other-modules:
-      SimulatedAnnealing.AddSpec
-  hs-source-dirs:
-      test
-  ghc-options: -threaded -rtsopts -with-rtsopts=-N -Wall
+  type:               exitcode-stdio-1.0
+  main-is:            Spec.hs
+  other-modules:      SimulatedAnnealing.AddSpec
+  hs-source-dirs:     test
+  ghc-options:        -threaded -rtsopts -with-rtsopts=-N -Wall
   build-depends:
-      base >=4.7 && <5
+    , base                 >=4.7 && <5
     , hspec
     , simulated-annealing
-  build-tool-depends: hspec-discover:hspec-discover == 2.*
-  default-language: Haskell2010
+
+  build-tool-depends: hspec-discover:hspec-discover ==2.*
+  default-language:   Haskell2010
