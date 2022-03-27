@@ -2,7 +2,8 @@ module SimulatedAnnealing.Tour
   ( Tour (..),
     calculateDistanceBetweenCities,
     totalDistance,
-    swapCities
+    swapCities,
+    generateRandomIndexFromTour
   )
 where
 
