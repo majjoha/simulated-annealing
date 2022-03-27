@@ -1,7 +1,6 @@
 module SimulatedAnnealing
-  ( module SimulatedAnnealing.Add,
+  ( module SimulatedAnnealing.City
   )
 where
 
-
-import           SimulatedAnnealing.Add
+import           SimulatedAnnealing.City

@@ -11,7 +11,7 @@ license-file:  LICENSE
 library
   exposed-modules:
     SimulatedAnnealing
-    SimulatedAnnealing.Add
+    SimulatedAnnealing.City
 
   hs-source-dirs:   src
   build-depends:    base ^>=4.14.3.0
@@ -26,7 +26,7 @@ executable simulated-annealing
 test-suite simulated-annealing-test
   type:               exitcode-stdio-1.0
   main-is:            Spec.hs
-  other-modules:      SimulatedAnnealing.AddSpec
+  other-modules:      SimulatedAnnealing.CitySpec
   hs-source-dirs:     test
   ghc-options:        -threaded -rtsopts -with-rtsopts=-N -Wall
   build-depends:
