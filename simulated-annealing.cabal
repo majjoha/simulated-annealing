@@ -24,7 +24,10 @@ library
 
 executable simulated-annealing
   main-is:          Main.hs
-  build-depends:    base ^>=4.14.3.0
+  build-depends:
+    , base                 ^>=4.14.3.0
+    , simulated-annealing
+
   hs-source-dirs:   app
   default-language: Haskell2010
 
