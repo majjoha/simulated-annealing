@@ -19,3 +19,8 @@ spec = do
     it "calculates the distance when the tour has two cities or more" $ do
       totalDistance [(1, 2), (1, 3), (3, 1), (2, 2), (2, 3)]
         `shouldBe` 6.2426405
+
+    describe "swapCities" $ do
+      it "swaps two cities in a tour" $ do
+        let tour = [(1, 2), (1, 3), (3, 1), (2, 2), (2, 3)]
+        swapCities 2 4 tour `shouldBe` [(1, 2), (1, 3), (2, 3), (2, 2), (3, 1)]

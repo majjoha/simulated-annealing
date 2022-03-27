@@ -2,6 +2,7 @@ module SimulatedAnnealing.Tour
   ( Tour (..),
     calculateDistanceBetweenCities,
     totalDistance,
+    swapCities
   )
 where
 
@@ -23,3 +24,9 @@ totalDistance (c1 : c2 : xs) =
 
 generateRandomIndexFromTour :: Tour -> IO Int
 generateRandomIndexFromTour tour = randomRIO (0 :: Int, length tour - 1)
+
+swapCities :: Int -> Int -> Tour -> Tour
+swapCities = swapCities'
+  where
+    replace i x xs = take i xs ++ [x] ++ drop (i + 1) xs
+    swapCities' i j xs = replace i (xs !! j) $ replace j (xs !! i) xs
