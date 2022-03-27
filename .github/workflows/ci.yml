@@ -10,7 +10,7 @@ jobs:
       - name: Clone repository
         uses: actions/checkout@v2
       - name: Set up Haskell
-        uses: actions/setup-haskell@v1
+        uses: haskell/actions/setup@v1
         with:
           ghc-version: "8.10.7"
           cabal-version: "3.6.2.0"
