@@ -1,12 +1,13 @@
-cabal-version: 2.4
-name:          simulated-annealing
-version:       1.0.0
-synopsis:      An implementation of the simulated annealing algorithm
-author:        Mathias Jean Johansen
-maintainer:    mathias@mjj.io
-homepage:      https://github.com/majjoha/simulated-annealing
-license:       ISC
-license-file:  LICENSE
+cabal-version:      2.4
+name:               simulated-annealing
+version:            1.0.0
+synopsis:           An implementation of the simulated annealing algorithm
+author:             Mathias Jean Johansen
+maintainer:         mathias@mjj.io
+homepage:           https://github.com/majjoha/simulated-annealing
+license:            ISC
+license-file:       LICENSE
+extra-source-files: README.md
 
 library
   exposed-modules:
