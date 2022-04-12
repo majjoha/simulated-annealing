@@ -10,7 +10,7 @@ module SimulatedAnnealing.Algorithm
 where
 
 import           SimulatedAnnealing.Tour
-import           System.Random
+import qualified System.Random as Random
 
 initialTemperature :: Float
 initialTemperature = 10_000
@@ -41,7 +41,7 @@ generateShortestTour :: Tour -> Float -> Int -> IO (Tour, Int)
 generateShortestTour currentTour temperature iterations = do
   firstIndex <- generateRandomIndexFromTour currentTour
   secondIndex <- generateRandomIndexFromTour currentTour
-  random <- randomRIO (0 :: Float, 1)
+  random <- Random.randomRIO (0 :: Float, 1)
 
   let neighborTour = swapCities firstIndex secondIndex currentTour
   let currentTour' = generateNewTour random currentTour neighborTour temperature
