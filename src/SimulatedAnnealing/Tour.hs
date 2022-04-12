@@ -15,7 +15,12 @@ type Tour = [City]
 
 calculateDistanceBetweenCities :: City -> City -> Float
 calculateDistanceBetweenCities (x1, y1) (x2, y2) =
-  sqrt ((x1 - x2) ^ 2 + (y1 - y2) ^ 2)
+  sqrt ((x1' - x2') ^ 2 + (y1' - y2') ^ 2)
+    where
+      x1' = fromIntegral x1 :: Float
+      x2' = fromIntegral x2 :: Float
+      y1' = fromIntegral y1 :: Float
+      y2' = fromIntegral y2 :: Float
 
 totalDistance :: Tour -> Float
 totalDistance [] = 0
