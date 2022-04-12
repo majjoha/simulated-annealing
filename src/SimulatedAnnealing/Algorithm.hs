@@ -31,11 +31,11 @@ findShortestTour currentTour bestTour
 generateNewTour :: Float -> Tour -> Tour -> Float -> Tour
 generateNewTour random currentTour neighborTour temperature =
   if random < acceptanceProbability currentLength neighborLength temperature
-  then neighborTour
-  else currentTour
-    where
-      currentLength = totalDistance currentTour
-      neighborLength = totalDistance neighborTour
+    then neighborTour
+    else currentTour
+  where
+    currentLength = totalDistance currentTour
+    neighborLength = totalDistance neighborTour
 
 generateShortestTour :: Tour -> Float -> Int -> IO (Tour, Int)
 generateShortestTour currentTour temperature iterations = do
@@ -48,5 +48,5 @@ generateShortestTour currentTour temperature iterations = do
   let bestTour = findShortestTour currentTour' currentTour
 
   if temperature > 1
-  then generateShortestTour bestTour (temperature * coolingFactor) $ iterations + 1
-  else return (bestTour, iterations)
+    then generateShortestTour bestTour (temperature * coolingFactor) $ iterations + 1
+    else return (bestTour, iterations)
