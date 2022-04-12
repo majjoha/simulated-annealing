@@ -24,3 +24,21 @@ spec = do
       it "swaps two cities in a tour" $ do
         let tour = [(1, 2), (1, 3), (3, 1), (2, 2), (2, 3)]
         swapCities 2 4 tour `shouldBe` [(1, 2), (1, 3), (2, 3), (2, 2), (3, 1)]
+
+    describe "segment" $ do
+      it "segments a tour of an even number of cities" $ do
+        let tour = [(1, 2), (3, 4), (5, 6), (7, 8)]
+        segment tour
+          `shouldBe` [ ((1, 2), (3, 4)),
+                       ((3, 4), (5, 6)),
+                       ((5, 6), (7, 8)),
+                       ((7, 8), (1, 2))
+                     ]
+
+      it "segments a tour of an odd number of cities" $ do
+        let tour = [(1, 2), (3, 4), (5, 6)]
+        segment tour
+          `shouldBe` [ ((1, 2), (3, 4)),
+                       ((3, 4), (5, 6)),
+                       ((5, 6), (1, 2))
+                     ]

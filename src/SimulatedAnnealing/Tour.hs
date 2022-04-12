@@ -3,7 +3,8 @@ module SimulatedAnnealing.Tour
     calculateDistanceBetweenCities,
     totalDistance,
     swapCities,
-    generateRandomIndexFromTour
+    generateRandomIndexFromTour,
+    segment,
   )
 where
 
@@ -31,3 +32,8 @@ swapCities = swapCities'
   where
     replace i x xs = take i xs ++ [x] ++ drop (i + 1) xs
     swapCities' i j xs = replace i (xs !! j) $ replace j (xs !! i) xs
+
+segment :: Tour -> [(City, City)]
+segment tour = t ++ [(snd $ last t, fst $ head t)]
+  where
+    t = zip tour $ tail tour
