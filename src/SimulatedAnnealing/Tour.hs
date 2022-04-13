@@ -1,5 +1,5 @@
 module SimulatedAnnealing.Tour
-  ( Tour (..),
+  ( Tour,
     calculateDistanceBetweenCities,
     totalDistance,
     swapCities,
