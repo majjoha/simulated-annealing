@@ -14,5 +14,9 @@ jobs:
         with:
           ghc-version: "8.10.7"
           cabal-version: "3.6.2.0"
+      - name: Install SDL2
+        run: |
+          sudo apt update
+          sudo apt install -y libsdl2-dev
       - name: Run tests
         run: cabal new-test
