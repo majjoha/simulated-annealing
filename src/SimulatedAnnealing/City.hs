@@ -1,5 +1,5 @@
 module SimulatedAnnealing.City
-  ( City (..),
+  ( City,
     mkCity,
     generateRandomCity,
   )
