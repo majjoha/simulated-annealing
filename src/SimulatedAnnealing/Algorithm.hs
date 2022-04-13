@@ -37,8 +37,8 @@ generateNewTour random currentTour neighborTour temperature =
     currentLength = totalDistance currentTour
     neighborLength = totalDistance neighborTour
 
-generateShortestTour :: Tour -> Float -> Int -> IO (Tour, Int)
-generateShortestTour currentTour temperature iterations = do
+generateShortestTour :: Tour -> Float -> Int -> [Tour] -> IO (Tour, Int, [Tour])
+generateShortestTour currentTour temperature iterations tours = do
   firstIndex <- generateRandomIndexFromTour currentTour
   secondIndex <- generateRandomIndexFromTour currentTour
   random <- Random.randomRIO (0 :: Float, 1)
@@ -46,7 +46,14 @@ generateShortestTour currentTour temperature iterations = do
   let neighborTour = swapCities firstIndex secondIndex currentTour
   let currentTour' = generateNewTour random currentTour neighborTour temperature
   let bestTour = findShortestTour currentTour' currentTour
+  let newTours = if bestTour == currentTour then tours else tours ++ [bestTour]
 
   if temperature > 1
-    then generateShortestTour bestTour (temperature * coolingFactor) $ iterations + 1
-    else return (bestTour, iterations)
+    then
+      generateShortestTour
+        bestTour
+        (temperature * coolingFactor)
+        (iterations + 1)
+        newTours
+        -- (tours ++ [bestTour])
+    else return (bestTour, iterations, tours ++ [bestTour])
