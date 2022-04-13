@@ -1,4 +1,4 @@
-# 🗺 Simulated annealing
+# Simulated annealing
 ![CI](https://github.com/majjoha/simulated-annealing/workflows/CI/badge.svg)
 
 This repository contains an implementation of the [simulated
