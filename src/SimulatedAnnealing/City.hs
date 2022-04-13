@@ -14,6 +14,6 @@ mkCity x y = (x, y)
 
 generateRandomCity :: IO City
 generateRandomCity = do
-  x <- randomRIO (1 :: Int, 100)
-  y <- randomRIO (1 :: Int, 100)
+  x <- randomRIO (10 :: Int, 990)
+  y <- randomRIO (10 :: Int, 990)
   return (x, y)
