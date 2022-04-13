@@ -1,5 +1,7 @@
 module SimulatedAnnealing.TourSpec (spec) where
 
+import qualified Data.Vector.Storable as SV
+import           SDL
 import           SimulatedAnnealing
 import           Test.Hspec
 
@@ -25,23 +27,11 @@ spec = do
         let tour = [(1, 2), (1, 3), (3, 1), (2, 2), (2, 3)]
         swapCities 2 4 tour `shouldBe` [(1, 2), (1, 3), (2, 3), (2, 2), (3, 1)]
 
-    describe "segment" $ do
-      it "segments a tour of an even number of cities" $ do
-        let tour = [(1, 2), (3, 4), (5, 6), (7, 8)]
-        segment tour
-          `shouldBe` [ ((1, 2), (3, 4)),
-                       ((3, 4), (5, 6)),
-                       ((5, 6), (7, 8)),
-                       ((7, 8), (1, 2))
-                     ]
-
-      it "segments a tour of an odd number of cities" $ do
-        let tour = [(1, 2), (3, 4), (5, 6)]
-        segment tour
-          `shouldBe` [ ((1, 2), (3, 4)),
-                       ((3, 4), (5, 6)),
-                       ((5, 6), (1, 2))
-                     ]
+    describe "tourToVector" $ do
+      it "converts a tour to a SDL vector" $ do
+        let tour = [(1, 2), (1, 3), (3, 1), (2, 2), (2, 3)]
+        tourToVector tour `shouldBe`
+          SV.fromList [ P (V2 1 2), P (V2 1 3), P (V2 3 1), P (V2 2 2), P (V2 2 3), P (V2 1 2) ]
 
     describe "safeHead" $ do
       it "returns a tour with one city when the list of tours is empty" $ do

@@ -4,13 +4,16 @@ module SimulatedAnnealing.Tour
     totalDistance,
     swapCities,
     generateRandomIndexFromTour,
-    segment,
+    tourToVector,
     safeHead,
     safeTail,
   )
 where
 
 import           SimulatedAnnealing.City (City)
+import qualified Data.Vector.Storable    as SV
+import           Foreign.C.Types
+import           SDL
 import           System.Random
 
 type Tour = [City]
@@ -40,10 +43,11 @@ swapCities = swapCities'
     replace i x xs = take i xs ++ [x] ++ drop (i + 1) xs
     swapCities' i j xs = replace i (xs !! j) $ replace j (xs !! i) xs
 
-segment :: Tour -> [(City, City)]
-segment tour = t ++ [(snd $ last t, fst $ head t)]
-  where
-    t = zip tour $ tail tour
+tourToVector :: Tour -> SV.Vector (Point V2 CInt)
+tourToVector tour =
+  SV.fromList $
+    map (\(x, y) -> P (V2 (fromIntegral x) (fromIntegral y))) $
+      tour ++ [head [head tour]]
 
 safeHead :: [Tour] -> Tour
 safeHead []       = [mkCity 0 0]
