@@ -20,6 +20,7 @@ library
   build-depends:
     , base    ^>=4.14.3.0
     , random  >=1.2.1
+    , sdl2
 
   default-language: Haskell2010
 
@@ -27,6 +28,7 @@ executable simulated-annealing
   main-is:          Main.hs
   build-depends:
     , base                 ^>=4.14.3.0
+    , sdl2
     , simulated-annealing
 
   hs-source-dirs:   app
@@ -45,6 +47,7 @@ test-suite simulated-annealing-test
   build-depends:
     , base                 >=4.7 && <5
     , hspec
+    , sdl2
     , simulated-annealing
 
   build-tool-depends: hspec-discover:hspec-discover ==2.*
