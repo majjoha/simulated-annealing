@@ -9,6 +9,7 @@ problem](https://en.wikipedia.org/wiki/Travelling_salesman_problem).
 ## Requirements
 * [GHC](https://www.haskell.org/ghc/)
 * [`cabal-install`](https://cabal.readthedocs.io/en/3.6/index.html)
+* [SDL](https://www.libsdl.org/index.php)
 
 ## Usage
 * Build the project: `cabal update`
