@@ -5,6 +5,7 @@ module SimulatedAnnealing.Tour
     swapCities,
     generateRandomIndexFromTour,
     segment,
+    safeHead,
   )
 where
 
@@ -42,3 +43,7 @@ segment :: Tour -> [(City, City)]
 segment tour = t ++ [(snd $ last t, fst $ head t)]
   where
     t = zip tour $ tail tour
+
+safeHead :: [Tour] -> Tour
+safeHead []       = [mkCity 0 0]
+safeHead (x : xs) = x

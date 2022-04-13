@@ -42,3 +42,15 @@ spec = do
                        ((3, 4), (5, 6)),
                        ((5, 6), (1, 2))
                      ]
+
+    describe "safeHead" $ do
+      it "returns a tour with one city when the list of tours is empty" $ do
+        safeHead [] `shouldBe` [(0, 0)]
+
+      it "returns a list with a single tour when only one tour is in the list" $ do
+        let tours = [[(1, 2), (1, 3), (3, 1), (2, 2), (2, 3)]]
+        safeHead tours `shouldBe` [(1, 2), (1, 3), (3, 1), (2, 2), (2, 3)]
+
+      it "returns the first tour if the list contains multiple tours" $ do
+        let tours = [[(1, 2), (1, 3), (3, 1), (2, 2), (2, 3)], [(4, 3), (5, 2)]]
+        safeHead tours `shouldBe` [(1, 2), (1, 3), (3, 1), (2, 2), (2, 3)]
