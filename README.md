@@ -8,6 +8,10 @@ annealing](https://en.wikipedia.org/wiki/Simulated_annealing) optimization
 algorithm which is here used to solve the [traveling salesman
 problem](https://en.wikipedia.org/wiki/Travelling_salesman_problem).
 
+As the algorithm runs, it stores each step of the optimization process in a tour
+history, and once the algorithm has finished execution, it will animate these
+steps using SDL2.
+
 ## Requirements
 * [GHC](https://www.haskell.org/ghc/)
 * [`cabal-install`](https://cabal.readthedocs.io/en/3.6/index.html)
