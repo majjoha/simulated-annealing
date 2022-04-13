@@ -10,10 +10,10 @@ module SimulatedAnnealing.Tour
   )
 where
 
-import           SimulatedAnnealing.City (City)
 import qualified Data.Vector.Storable    as SV
 import           Foreign.C.Types
 import           SDL
+import           SimulatedAnnealing.City (City, mkCity)
 import           System.Random
 
 type Tour = [City]
