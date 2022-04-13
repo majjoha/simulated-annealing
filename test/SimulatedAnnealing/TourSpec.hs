@@ -54,3 +54,15 @@ spec = do
       it "returns the first tour if the list contains multiple tours" $ do
         let tours = [[(1, 2), (1, 3), (3, 1), (2, 2), (2, 3)], [(4, 3), (5, 2)]]
         safeHead tours `shouldBe` [(1, 2), (1, 3), (3, 1), (2, 2), (2, 3)]
+
+    describe "safeTail" $ do
+      it "returns an empty list when the list of tours is empty" $ do
+        safeTail [] `shouldBe` []
+
+      it "returns a list with one tour if the list of tours has only one" $ do
+        let tours = [[(1, 2), (1, 3), (3, 1), (2, 2), (2, 3)]]
+        safeTail tours `shouldBe` [[(1, 2), (1, 3), (3, 1), (2, 2), (2, 3)]]
+
+      it "returns the rest of the list if the list contains multiple tours" $ do
+        let tours = [[(1, 2), (1, 3), (3, 1), (2, 2), (2, 3)], [(4, 3), (5, 2)]]
+        safeTail tours `shouldBe` [[(4, 3), (5, 2)]]

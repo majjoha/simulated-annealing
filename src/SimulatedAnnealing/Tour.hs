@@ -6,6 +6,7 @@ module SimulatedAnnealing.Tour
     generateRandomIndexFromTour,
     segment,
     safeHead,
+    safeTail,
   )
 where
 
@@ -47,3 +48,8 @@ segment tour = t ++ [(snd $ last t, fst $ head t)]
 safeHead :: [Tour] -> Tour
 safeHead []       = [mkCity 0 0]
 safeHead (x : xs) = x
+
+safeTail :: [Tour] -> [Tour]
+safeTail []       = []
+safeTail [x]      = [x]
+safeTail (x : xs) = xs
