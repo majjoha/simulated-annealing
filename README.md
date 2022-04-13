@@ -1,6 +1,8 @@
 # Simulated Annealing
 ![CI](https://github.com/majjoha/simulated-annealing/workflows/CI/badge.svg)
 
+<img width="38%" align="right" src="https://github.com/majjoha/simulated-annealing/raw/main/demo.gif">
+
 This repository contains an implementation of the [simulated
 annealing](https://en.wikipedia.org/wiki/Simulated_annealing) optimization
 algorithm which is here used to solve the [traveling salesman
