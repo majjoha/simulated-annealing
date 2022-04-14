@@ -18,7 +18,7 @@ steps using SDL2.
 * [SDL](https://www.libsdl.org/index.php)
 
 ## Usage
-* Build the project: `cabal update`
+* Build the project: `cabal build`
 * Run the algorithm: `cabal run simulated-annealing`
 
 To run the test suite, run `cabal new-test`.
