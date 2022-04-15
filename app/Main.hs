@@ -71,9 +71,9 @@ main = do
         SDL.drawLines renderer $ tourToVector $ safeHead tours
         SDL.present renderer
 
-        if not $ null tours
-          then unless quit $ loop $ safeTail tours
-          else unless quit $ loop tours
+        if null tours
+          then unless quit $ loop tours
+          else unless quit $ loop $ safeTail tours
   loop tourHistory
 
   putStrLn ("Iterations: " ++ show iterations)
